@@ -1,0 +1,104 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        -webkit-transition: all .2s;
+        -o-transition: all .2s;
+        transition: all .2s;
+        position: relative;
+        border: none;
+        cursor: none;
+    }
+    &:hover {
+        -webkit-transform: scale(1.1) translateY(-.3rem);
+            -ms-transform: scale(1.1) translateY(-.3rem);
+                transform: scale(1.1) translateY(-.3rem);
+        -webkit-box-shadow: 0 1rem 2rem rgba($color-black, .2);
+                box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        &::after {
+            -webkit-transform: scaleX(1.4) scaleY(1.6);
+                -ms-transform: scaleX(1.4) scaleY(1.6);
+                    transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+    &:active,
+    &:focus {
+        outline: none;
+        -webkit-transform: translateY(-1px) scale(1);
+            -ms-transform: translateY(-1px) scale(1);
+                transform: translateY(-1px) scale(1);
+        -webkit-box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+                box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+    }
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+        &::after {
+            background-color: $color-white;
+        }
+    }
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+        &::after {
+            background-color: $color-primary;
+        }
+    }
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        -webkit-transition: all .4s;
+        -o-transition: all .4s;
+        transition: all .4s;
+    }
+    &--pulse {
+        -webkit-animation: moveInBottom .5s ease-out .75s;
+                animation: moveInBottom .5s ease-out .75s;
+        -webkit-animation-fill-mode: backwards;
+                animation-fill-mode: backwards;
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        -webkit-transition: all .2s;
+        -o-transition: all .2s;
+        transition: all .2s;
+    }
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        -webkit-box-shadow: 0 1rem 2rem rgba($color-black, .15);
+                box-shadow: 0 1rem 2rem rgba($color-black, .15);
+        -webkit-transform: translateY(-2px);
+            -ms-transform: translateY(-2px);
+                transform: translateY(-2px);
+    }
+    &:active {
+        -webkit-box-shadow: 0 1rem 2rem rgba($color-black, .15);
+                box-shadow: 0 1rem 2rem rgba($color-black, .15);
+        -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+                transform: translateY(0);
+    }
+}

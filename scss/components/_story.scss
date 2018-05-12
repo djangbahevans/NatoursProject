@@ -1,0 +1,99 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    -webkit-box-shadow: 0 3rem 6rem rgba($color-black, .1);
+            box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .6);
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: $default-font-size;
+    -webkit-transform: skewX(-12deg);
+        -ms-transform: skewX(-12deg);
+            transform: skewX(-12deg);
+    @include respond(tab-port) {
+        width: 100%;
+        padding: 4rem;
+        padding-left: 7rem;
+    }
+    @include respond(phone) {
+        -webkit-transform: skewX(0);
+            -ms-transform: skewX(0);
+                transform: skewX(0);
+    }
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        background-color: orangered;
+        float: left;
+        -webkit-transform: translate(-3rem) skewX(12deg);
+            -ms-transform: translate(-3rem) skewX(12deg);
+                transform: translate(-3rem) skewX(12deg);
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        @supports ((-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0))) or (-webkit-clip-path: polygon(0 0)) {
+            -webkit-clip-path: circle(50% at 50% 50%);
+                    clip-path: circle(50% at 50% 50%);
+            -webkit-shape-outside: circle(50% at 50% 50%);
+                    shape-outside: circle(50% at 50% 50%);
+            border-radius: none;
+        }
+        @include respond(phone) {
+            -webkit-transform: translate(-3rem) skewX(0);
+                -ms-transform: translate(-3rem) skewX(0);
+                    transform: translate(-3rem) skewX(0);
+        }
+    }
+    &__image {
+        height: 100%;
+        -webkit-transform: translateX(-4rem) scale(1.4);
+            -ms-transform: translateX(-4rem) scale(1.4);
+                transform: translateX(-4rem) scale(1.4);
+        -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+        -webkit-transition: all .8s;
+        -o-transition: all .8s;
+        transition: all .8s;
+    }
+    &__text {
+        -webkit-transform: skewX(12deg);
+            -ms-transform: skewX(12deg);
+                transform: skewX(12deg);
+        @include respond(phone) {
+            -webkit-transform: skewX(0);
+                -ms-transform: skewX(0);
+                    transform: skewX(0);
+        }
+    }
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, 20%);
+            -ms-transform: translate(-50%, 20%);
+                transform: translate(-50%, 20%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        -webkit-transition: all 0.8s;
+        -o-transition: all 0.8s;
+        transition: all 0.8s;
+        -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+    }
+    &:hover &__caption {
+        opacity: 1;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+    }
+    &:hover &__image {
+        -webkit-transform: translateX(-4rem) scale(1);
+            -ms-transform: translateX(-4rem) scale(1);
+                transform: translateX(-4rem) scale(1);
+        -webkit-filter: blur(3px) brightness(80%);
+                filter: blur(3px) brightness(80%);
+    }
+}
